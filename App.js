@@ -6,6 +6,7 @@ import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import MessagesScreen from "./app/screens/MessagesScreen";
 // import AppText from "./app/components/AppText";
 // import AppButton from "./app/components/AppButton";
 
@@ -22,7 +23,8 @@ export default function App() {
   //     </View>
   //   );
   //   return <WelcomeScreen />;
-  return <ViewImageScreen />;
+  //   return <ViewImageScreen />;
+  return <MessagesScreen />;
   //   return (
   //     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
   //       {/* <AppText>Hello World!</AppText> */}
