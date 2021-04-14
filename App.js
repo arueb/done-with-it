@@ -7,6 +7,9 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 import Card from "./app/components/Card";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from "./app/screens/MessagesScreen";
+import AccountScreen from "./app/screens/AccountScreen";
+import Screen from "./app/components/Screen";
+import Icon from "./app/components/Icon";
 // import AppText from "./app/components/AppText";
 // import AppButton from "./app/components/AppButton";
 
@@ -24,7 +27,9 @@ export default function App() {
   //   );
   //   return <WelcomeScreen />;
   //   return <ViewImageScreen />;
-  return <MessagesScreen />;
+  //   return <MessagesScreen />;
+  return <AccountScreen />;
+
   //   return (
   //     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
   //       {/* <AppText>Hello World!</AppText> */}
