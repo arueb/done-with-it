@@ -1,10 +1,10 @@
 import React from "react";
-import MaterialCommunityIcons from "@expo/vector-icons";
 import { View, StyleSheet, FlatList } from "react-native";
 
 import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
 import Icon from "../components/Icon";
+import ListItemSeparator from "../components/ListItemSeparator";
 
 import colors from "../config/colors";
 
@@ -50,6 +50,7 @@ function AccountScreen(props) {
               }
             />
           )}
+          ItemSeparatorComponent={ListItemSeparator}
         />
       </View>
       <View style={styles.container}>
