@@ -6,7 +6,7 @@ import colors from "../config/colors";
 
 function ListItem({
   image,
-  ImageComponent,
+  IconComponent,
   title,
   subTitle,
   onPress,
@@ -16,7 +16,7 @@ function ListItem({
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
         <View style={styles.container}>
-          {ImageComponent}
+          {IconComponent}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.detailsContainer}>
             <AppText>{title}</AppText>
