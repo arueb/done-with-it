@@ -4,6 +4,7 @@ import AppTextInput from "./app/components/AppTextInput";
 import { Switch } from "react-native";
 import AppPicker from "./app/components/AppPicker";
 import RegisterScreen from "./app/screens/RegisterScreen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 const categories = [
   { label: "Furniture", value: 1 },
@@ -16,7 +17,7 @@ export default function App() {
   const [category, setCategory] = useState(categories[0]);
 
   return (
-    <RegisterScreen />
+    <ListingEditScreen />
     // <Screen>
 
     //   {/* <AppPicker
