@@ -27,12 +27,22 @@ function ListingEditScreen(props) {
   return (
     <Screen style={styles.container}>
       <AppForm
-        initialValues={{ title: "", price: "", category: "", description: "" }}
+        initialValues={{
+          title: "",
+          price: "",
+          category: null,
+          description: "",
+        }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        <AppFormField autoCorrect={true} name="title" placeholder="Title" />
-        <AppFormField name="price" keyboardType="numeric" placeholder="Price" />
+        <AppFormField maxLength={255} name="title" placeholder="Title" />
+        <AppFormField
+          name="price"
+          keyboardType="numeric"
+          maxLength={8}
+          placeholder="Price"
+        />
         <AppFormPicker
           items={categories}
           name="category"
@@ -41,6 +51,8 @@ function ListingEditScreen(props) {
         <AppFormField
           autoCorrect={true}
           name="description"
+          multiline
+          numberOfLines={3}
           placeholder="Description"
         />
         <SubmitButton title="Post" />
