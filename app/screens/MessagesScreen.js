@@ -15,7 +15,7 @@ const initialMessages = [
   },
   {
     id: 2,
-    title: "T2",
+    title: "T2 is a super long title that should be truncated",
     description: "D2",
     image: require("../assets/mosh.jpg"),
   },
