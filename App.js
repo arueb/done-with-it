@@ -19,9 +19,9 @@ export default function App() {
   const [category, setCategory] = useState(categories[0]);
 
   return (
-    <MessagesScreen />
+    // <MessagesScreen />
     // <ListingsScreen />
-    // <ListingEditScreen />
+    <ListingEditScreen />
     // <Screen>
 
     //   {/* <AppPicker
