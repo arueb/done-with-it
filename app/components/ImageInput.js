@@ -1,31 +1,64 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
-  View,
+  Alert,
+  Image,
   StyleSheet,
   TouchableWithoutFeedback,
-  Image,
+  View,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
 
 function ImageInput({ imageUri, onChangeImage }) {
+  useEffect(() => {
+    requestPermission();
+  }, []);
+
+  const requestPermission = async () => {
+    // const { status } = await Permissions.askAsync(
+    //   Permissions.MEDIA_LIBRARY,
+    //   Permissions.LOCATION
+    // );
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (status !== "granted")
+      alert("You need to enbale permission to access your media library.");
+  };
+
   const selectImage = async () => {
     try {
-      const result = await ImagePicker.launchImageLibraryAsync();
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        quality: 0.5,
+      });
       if (!result.cancel) onChangeImage(result.uri);
     } catch (error) {
       console.log("Error reading an image");
     }
   };
 
+  const hanldePress = () => {
+    if (!imageUri) {
+      selectImage();
+    } else {
+      Alert.alert("Delete", "Are you sure you want to delete this image?", [
+        { text: "Yes", onPress: () => onChangeImage(null) },
+        { text: "No" },
+      ]);
+    }
+  };
+
   return (
-    <TouchableWithoutFeedback onPress={selectImage}>
+    <TouchableWithoutFeedback onPress={hanldePress}>
       <View style={styles.container}>
         {imageUri ? (
           <Image source={{ uri: imageUri }} style={styles.image} />
         ) : (
-          <MaterialCommunityIcons name="camera" size={30} />
+          <MaterialCommunityIcons
+            name="camera"
+            size={40}
+            color={colors.medium}
+          />
         )}
       </View>
     </TouchableWithoutFeedback>
@@ -34,16 +67,17 @@ function ImageInput({ imageUri, onChangeImage }) {
 
 const styles = StyleSheet.create({
   container: {
-    width: 100,
-    height: 100,
-    borderRadius: 25,
-    backgroundColor: colors.light,
-    justifyContent: "center",
     alignItems: "center",
+    backgroundColor: colors.light,
+    borderRadius: 15,
+    height: 100,
+    justifyContent: "center",
+    overflow: "hidden",
+    width: 100,
   },
   image: {
-    width: "100%",
     height: "100%",
+    width: "100%",
   },
 });
 
