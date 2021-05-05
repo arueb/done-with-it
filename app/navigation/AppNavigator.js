@@ -4,14 +4,14 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import AccountScreen from "../screens/AccountScreen";
 import ListingEditScreen from "../screens/ListingEditScreen";
-import ListingsScreen from "../screens/ListingsScreen";
+import FeedNavigator from "./FeedNavigator";
 
 const Tabs = createBottomTabNavigator();
 const AppNavigator = () => (
   <Tabs.Navigator>
     <Tabs.Screen
       name="Feed"
-      component={ListingsScreen}
+      component={FeedNavigator}
       options={{
         tabBarIcon: ({ size, color }) => (
           <MaterialCommunityIcons name="home" size={size} color={color} />
