@@ -5,6 +5,9 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AccountScreen from "../screens/AccountScreen";
 import ListingEditScreen from "../screens/ListingEditScreen";
 import FeedNavigator from "./FeedNavigator";
+import AccountNavigator from "./AccountNavigator";
+import NewListingButton from "./NewListingButton";
+import navigationTheme from "./navigationTheme";
 
 const Tabs = createBottomTabNavigator();
 const AppNavigator = () => (
@@ -18,10 +21,20 @@ const AppNavigator = () => (
         ),
       }}
     />
-    <Tabs.Screen name="ListingEdit" component={ListingEditScreen} />
+    <Tabs.Screen
+      name="ListingEdit"
+      component={ListingEditScreen}
+      options={({ navigation }) => ({
+        tabBarButton: () => (
+          <NewListingButton
+            onPress={() => navigation.navigate("ListingEdit")}
+          />
+        ),
+      })}
+    />
     <Tabs.Screen
       name="Account"
-      component={AccountScreen}
+      component={AccountNavigator}
       options={{
         tabBarIcon: ({ size, color }) => (
           <MaterialCommunityIcons name="account" size={size} color={color} />

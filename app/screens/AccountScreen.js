@@ -8,22 +8,24 @@ import colors from "../config/colors";
 
 const menuItems = [
   {
-    title: "My Listings",
     icon: {
       name: "format-list-bulleted",
       backgroundColor: colors.primary,
     },
+    title: "My Listings",
+    targetScreen: "Listings",
   },
   {
-    title: "My Messages",
     icon: {
       name: "email",
       backgroundColor: colors.secondary,
     },
+    targetScreen: "Messages",
+    title: "My Messages",
   },
 ];
 
-function AccountScreen(props) {
+function AccountScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -39,6 +41,7 @@ function AccountScreen(props) {
           keyExtractor={(menuItem) => menuItem.title}
           renderItem={({ item }) => (
             <ListItem
+              onPress={() => navigation.navigate(item.targetScreen)}
               title={item.title}
               IconComponent={
                 <Icon
