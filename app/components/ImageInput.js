@@ -21,16 +21,19 @@ function ImageInput({ imageUri, onChangeImage }) {
     //   Permissions.LOCATION
     // );
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    console.log("status:", status);
     if (status !== "granted")
       alert("You need to enbale permission to access your media library.");
   };
 
   const selectImage = async () => {
     try {
+      console.log("selecting image");
       const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
         quality: 0.5,
       });
+      console.log("result", result.uri);
       if (!result.cancel) onChangeImage(result.uri);
     } catch (error) {
       console.log("Error reading an image");
