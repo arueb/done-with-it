@@ -18,6 +18,7 @@ function ListingsScreen({ navigation }) {
 
   useEffect(() => {
     loadListings();
+    console.log(data);
   }, []);
 
   return (
